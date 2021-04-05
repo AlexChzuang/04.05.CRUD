@@ -1,0 +1,17 @@
+<h1>新增電影</h1>
+
+<%= form_for(@movie) do |f| %>
+  <%= f.label :name, "電影名稱" %>
+  <%= f.text_field :name %> <br>
+
+  <%= f.label :year, "上映年份" %>
+  <%= f.text_field :year %> <br>
+
+  <%= f.label :issued, "發行公司" %>
+  <%= f.text_field :issued %> <br>
+
+  <%= f.submit %>
+<% end %>
+
+<br>
+<%= link_to '回電影列表', movies_path %>

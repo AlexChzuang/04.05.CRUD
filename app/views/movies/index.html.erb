@@ -1,0 +1,31 @@
+<h1>電影列表</h1>
+
+<%= link_to "新增電影", new_movie_path %>
+
+<table>
+  <thead>
+    <tr>
+      <td>投票</td>
+      <td>電影名稱</td>
+      <td>發行公司</td>
+      <td>得票數</td>
+      <td>處理</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+    <tr>
+      <td><%= link_to "選起來", "#" %></td>
+      <td><%= movie.name %>(上映年份：<%= movie.year %> 年)</td>
+      <td><%= movie.issued %></td>
+      <td><%= movie.votes %></td>
+
+      <td>
+        <%= link_to "編輯", edit_movie_path(movie) %>
+        <%= link_to "刪除", movie_path(movie), method: "delete", data: { confirm: "確認刪除" } %>
+      </td>
+    </tr>
+
+    <% end %>
+  </tbody>
+</table>
